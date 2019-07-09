@@ -5,6 +5,7 @@ module.exports = {
     navbar: true,
     // 会在导航栏中自动生成一个 GitHub 链接，并在每个页面的底部显示「编辑此页面」链接
     repo: 'shiyisen321/Esen.github.io',
+    base: '/Esen.github.io/',
     // 可以编辑 GitHub 链接显示的文本
     editLinks: true,
     editLinkText: '在 GitHub 上编辑此页',
