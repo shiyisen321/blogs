@@ -38,6 +38,20 @@ module.exports = {
                     buttonText: '刷新'
                 }
             }
+        ],
+        [
+            require('./plugins/gitalk/index.js'),
+            {
+                options: {
+                    clientID: 'c38e3ae1369260d33397',
+                    clientSecret: 'e0db7b1d2d38e1f5d66b078f41889b8bd10d2425',
+                    repo: 'blogs',
+                    owner: 'shiyisen321',
+                    admin: ['shiyisen321'],
+                    distractionFreeMode: false,  // Facebook-like distraction free mode
+                    labels: ['Gitalk', 'Comment'],
+                }
+            }
         ]
     ]
 }
