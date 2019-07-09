@@ -1,7 +1,7 @@
 ---
 title: "初识框架"
 date: "2019-07-04"
-permalink: "element-ui-2019-07-04"
+permalink: "ele-01"
 comments: false
 ---
 # package.json
