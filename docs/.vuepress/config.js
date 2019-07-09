@@ -10,7 +10,7 @@ module.exports = {
     head: [
         ['link', {
             rel: 'shortcut icon',
-            href: '/public/img/shi.jpg'
+            href: '/img/shi.jpg'
         }]
     ],
     markdown: mdConf,

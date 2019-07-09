@@ -22,7 +22,7 @@ module.exports = {
                 {
                     text: 'elementUI',
                     items: [
-                        {text: '源码分析', link: '/element-ui-2019-07-04/'}
+                        {text: '源码分析', link: '/ele-01/'}
                     ]
                 }
             ]
