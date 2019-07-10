@@ -13,4 +13,6 @@ git push -f git@github.com:shiyisen321/shiyisen321.github.io.git master
 
 cd -
 
+cd docs
+
 rm -rf .vuepress/dist

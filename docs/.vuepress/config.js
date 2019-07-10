@@ -1,11 +1,11 @@
 const {
     mdConf,
     themeConf,
+    locales
 } = require('./config/index.js');
 
 module.exports = {
-    title: '博客',
-    description: '每一件事都要做到精彩绝伦!',
+    locales: locales,
     displayAllHeaders: true,
     head: [
         ['link', {
@@ -48,7 +48,7 @@ module.exports = {
                     repo: 'blogs',
                     owner: 'shiyisen321',
                     admin: ['shiyisen321'],
-                    distractionFreeMode: false,  // Facebook-like distraction free mode
+                    distractionFreeMode: false,
                     labels: ['Gitalk', 'Comment'],
                 }
             }

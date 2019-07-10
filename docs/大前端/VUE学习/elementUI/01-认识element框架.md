@@ -2,30 +2,15 @@
 title: "初识框架"
 date: "2019-07-04"
 permalink: "ele-01"
-comments: false
 ---
-# package.json
+
+
+## package.json
 > 先从`package.json`开始看起
 
-## 脚本
-```json
-"scripts": {
-    "bootstrap": "yarn || npm i",
-    "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js",
-    "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
-    "deploy:build": "npm run build:file && cross-env NODE_ENV=production webpack --config build/webpack.demo.js && echo element.eleme.io>>examples/element-ui/CNAME",
-    "dev": "npm run bootstrap && npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js & node build/bin/template.js",
-    "dev:play": "npm run build:file && cross-env NODE_ENV=development PLAY_ENV=true webpack-dev-server --config build/webpack.demo.js",
-    "dist": "npm run clean && npm run build:file && npm run lint && webpack --config build/webpack.conf.js && webpack --config build/webpack.common.js && webpack --config build/webpack.component.js && npm run build:utils && npm run build:umd && npm run build:theme",
-    "i18n": "node build/bin/i18n.js",
-    "lint": "eslint src/**/* test/**/* packages/**/* build/**/* --quiet",
-    "pub": "npm run bootstrap && sh build/git-release.sh && sh build/release.sh && node build/bin/gen-indices.js && sh build/deploy-faas.sh",
-    "test": "npm run lint && npm run build:theme && cross-env CI_ENV=/dev/ BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test:watch": "npm run build:theme && cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
-  }
-```
 
-## 生产依赖
+### 生产依赖
+
 ```json
 "dependencies": {
     // 异步验证插件
@@ -43,7 +28,9 @@ comments: false
   },
 ```
 
-## 开发依赖
+
+### 开发依赖
+
 ```json
   "devDependencies": {
     // 编译.vue文件
@@ -123,7 +110,7 @@ comments: false
     "markdown-it-anchor": "^5.0.2",
     "markdown-it-chain": "^1.3.0",
     "markdown-it-container": "^2.0.0",
-    
+
     // 压缩css
     "mini-css-extract-plugin": "^0.4.1",
     // mocha测试库
@@ -173,15 +160,14 @@ comments: false
   }
 ```
 
-## 脚本
-```
+
+### 脚本（scripts对象）
+
+```json
 "scripts": {
     "bootstrap": "yarn || npm i",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
-    "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
-    "build:umd": "node build/bin/build-locale.js",
-    "clean": "rimraf lib && rimraf packages/*/lib && rimraf test/**/coverage",
     "deploy:build": "npm run build:file && cross-env NODE_ENV=production webpack --config build/webpack.demo.js && echo element.eleme.io>>examples/element-ui/CNAME",
     "dev": "npm run bootstrap && npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js & node build/bin/template.js",
     "dev:play": "npm run build:file && cross-env NODE_ENV=development PLAY_ENV=true webpack-dev-server --config build/webpack.demo.js",
@@ -193,161 +179,15 @@ comments: false
     "test:watch": "npm run build:theme && cross-env BABEL_ENV=test karma start test/unit/karma.conf.js"
   }
 ```
+`如果说 package.json 是学习框架的第一部分，那么其中 scripts 对象则是重中之重。script 里面指定了项目的生命周期各个环节需要执行的命令，体现了项目的开发、测试、打包、部署等架构关系。`
 
-## 执行`npm run dev`
-```
- "dev": "npm run bootstrap && npm run build:file && cross-env NODE_ENV=development webpack-dev-server --config build/webpack.demo.js & node build/bin/template.js"
+::: tip
+其中 scripts 对象的 key 是生命周期中的事件，而 value 是要执行的 shell 命令。
+:::
 
-```
-### 一、`npm run bootstrap`
-```
-"bootstrap": "yarn || npm i"
-```
-> 安装所有依赖
 
-### 二、`npm run build:file`
-```
-"build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js"
-
-```
-> 使用node运行了几个文件
-
-# `node build/bin/iconInit.js`
-```javascript
-// build/bin/iconInit.js
-'use strict';
-
-var postcss = require('postcss');
-var fs = require('fs');
-var path = require('path');
-var fontFile = fs.readFileSync(path.resolve(__dirname, '../../packages/theme-chalk/src/icon.scss'), 'utf8'); // 异步读取文件
-var nodes = postcss.parse(fontFile).nodes;
-var classList = [];
-
-nodes.forEach((node) => {
-  var selector = node.selector || ''; // 选择器
-  var reg = new RegExp(/\.el-icon-([^:]+):before/);
-  var arr = selector.match(reg);
-
-  if (arr && arr[1]) {
-    classList.push(arr[1]);
-  }
-});
-
-classList.reverse(); // => ["platform-eleme","eleme","delete-solid","delete","s-tools","setting", ...]
-
-fs.writeFile(path.resolve(__dirname, '../../examples/icon.json'), JSON.stringify(classList), () => {});
-```
-> 以上方法通过解析 icon.scss 最终导出 icon.json 文件，该文件保存了各种图标。
-
-## 看看postcss.parse()方法是啥
-1. 先搭建环境
-```shell
-$ npm init -y && npm i -D webpack webpack-cli postcss && touch index.scss index.js
-```
-2. index.scss 文件内容：
-```javascript
-div {
-    background: red;
-    .a {
-        color: green;
-    }
-}
-.wrap .b {
-    font-size: 19px;
-}
-```
-3. index.js 文件内容：
-```shell
-let postcss = require('postcss');
-let fs = require('fs');
-let path = require('path');
-
-let fileCont = fs.readFileSync(path.resolve(__dirname, './index.scss'), 'utf-8');
-let parseCss = postcss.parse(fileCont);
-let nodes = parseCss.nodes;
-
-console.log('-----------------------------------------------------');
-console.log('文件内容：');
-console.log(fileCont);
-console.log('-----------------------------------------------------');
-console.log('postcss 解析 css：');
-console.log(parseCss);
-console.log('-----------------------------------------------------');
-console.log('postcss 解析 css 返回对象的 nodes 属性：');
-console.log(nodes);
-console.log('-----------------------------------------------------');
-```
-4. 执行`node index.js`
-输出：
-```
------------------------------------------------------
-文件内容：
-div {
-    background: red;
-    .a {
-        color: green;
-    }
-}
-.wrap .b {
-    font-size: 19px;
-}
------------------------------------------------------
-postcss 解析 css：
-Root {
-  raws: { semicolon: false, after: '' },
-  type: 'root',
-  nodes:
-   [ Rule {
-       raws: [Object],
-       type: 'rule',
-       nodes: [Array],
-       parent: [Circular],
-       source: [Object],
-       selector: 'div' },
-     Rule {
-       raws: [Object],
-       type: 'rule',
-       nodes: [Array],
-       parent: [Circular],
-       source: [Object],
-       selector: '.wrap .b' } ],
-  source:
-   { input:
-      Input {
-        css: 'div {\n    background: red;\n    .a {\n        color: green;\n    }\n}\n.wrap .b {\n    font-size: 19px;\n}',
-        hasBOM: false,
-        id: '<input css 1>' },
-     start: { line: 1, column: 1 } } }
------------------------------------------------------
-postcss 解析 css 返回对象的 nodes 属性：
-[ Rule {
-    raws: { before: '', between: ' ', semicolon: false, after: '\n' },
-    type: 'rule',
-    nodes: [ [Object], [Object] ],
-    parent:
-     Root {
-       raws: [Object],
-       type: 'root',
-       nodes: [Circular],
-       source: [Object] },
-    source: { start: [Object], input: [Object], end: [Object] },
-    selector: 'div' },
-  Rule {
-    raws: { before: '\n', between: ' ', semicolon: true, after: '\n' },
-    type: 'rule',
-    nodes: [ [Object] ],
-    parent:
-     Root {
-       raws: [Object],
-       type: 'root',
-       nodes: [Circular],
-       source: [Object] },
-    source: { start: [Object], input: [Object], end: [Object] },
-    selector: '.wrap .b' } ]
------------------------------------------------------
-```
 ## 项目结构
+
 |目录名|目录描述|
 |--|--|
 |`build`|放置webpack的配置文件|
@@ -361,6 +201,4 @@ postcss 解析 css 返回对象的 nodes 属性：
 |`src/index.js`|组件注册的入口文件|
 |`test`|测试文件|
 |`types`|这个文件里放了typescript的数据类|
-
 <!-- <Valine/> -->
-<!-- <Valine></Valine> -->

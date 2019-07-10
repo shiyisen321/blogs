@@ -45,8 +45,7 @@ export default {
             return true
         },
         needComment(frontmatter) {
-            // return frontmatter.comment !== false && frontmatter.comments !== false;
-            return true;
+            return frontmatter.gittalk !== false;
         },
         renderComment(frontmatter) {
             clearTimeout(timer);
