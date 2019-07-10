@@ -65,4 +65,12 @@ export default {
     }
 };
 </script>
+<style>
+#gitalk {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+}
+</style>
+
 
