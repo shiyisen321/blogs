@@ -216,6 +216,67 @@ console.log('[build entry] DONE:', OUTPUT_PATH);
 [`uppercamelcase` 插件用法，点此链接](/zaji-04/)
 :::
 
+### `node build/bin/i18n.js`
+
+```js
+'use strict';
+
+var fs = require('fs');
+var path = require('path');
+var langConfig = require('../../examples/i18n/page.json');
+
+langConfig.forEach(lang => {
+  // 有目录读取目录信息，没有目录创建目录
+  try {
+    // 获取文件信息
+    fs.statSync(path.resolve(__dirname, `../../examples/pages/${ lang.lang }`)); // 同步提供有关文件信息
+  } catch (e) {
+    // 创建文件夹
+    fs.mkdirSync(path.resolve(__dirname, `../../examples/pages/${ lang.lang }`)); // 同步地创建目录
+  }
+
+  // 遍历写入文件
+  Object.keys(lang.pages).forEach(page => {
+    var templatePath = path.resolve(__dirname, `../../examples/pages/template/${ page }.tpl`);
+    var outputPath = path.resolve(__dirname, `../../examples/pages/${ lang.lang }/${ page }.vue`);
+    var content = fs.readFileSync(templatePath, 'utf8');
+    var pairs = lang.pages[page];
+
+    Object.keys(pairs).forEach(key => {
+      // 例如：匹配 <%= 1 %> 替换成展示内容
+      content = content.replace(new RegExp(`<%=\\s*${ key }\\s*>`, 'g'), pairs[key]);
+    });
+    // 将替换后的内容写入 outputPath 中
+    fs.writeFileSync(outputPath, content);
+  });
+});
+```
+> 以上代码是国际化的过程，最终将会在 `examples/pages/` 目录中生成不同语言的内容。国际化具体内容请参照 [国际化](http://element-cn.eleme.io/#/zh-CN/component/i18n)。
+>
+> pages里的组件都是页面级组件
+
+:::tip
+通过json数据，将 tpl 模版动态的编译为 .vue 文件。
+
+优点：
+
+只需写一套模版，就能实现国际化 API。
+:::
 
 
+### `cross-env`
+```shell
+cross-env NODE_ENV=development
+```
+:::tip
+写入环境变量
 
+在 webpack 配置文件中通过 `process.env.NODE_ENV` 拿到环境变量
+:::
+
+
+### webpack-dev-server
+
+:::tip
+由于 webpack 打包，本篇不做介绍，详见[webpack打包过程](/ele-03/)
+:::

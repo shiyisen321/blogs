@@ -29,10 +29,11 @@ module.exports = {
                 {
                     text: '前端杂记',
                     items: [
-                        {text: 'shell中&&和&的区别', link: '/zaji-01/'},
-                        {text: 'postcss.parse()方法', link: '/zaji-02/'},
-                        {text: 'json-templater/string插件', link: '/zaji-03/'},
+                        {text: 'markdown-it插件', link: '/zaji-05/'},
                         {text: 'uppercamelcase插件', link: '/zaji-04/'},
+                        {text: 'json-templater/string插件', link: '/zaji-03/'},
+                        {text: 'postcss.parse()方法', link: '/zaji-02/'},
+                        {text: 'shell中&&和&的区别', link: '/zaji-01/'},
                     ]
                 }
             ]

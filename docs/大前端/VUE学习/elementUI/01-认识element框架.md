@@ -4,10 +4,8 @@ date: "2019-07-04"
 permalink: "ele-01"
 ---
 
-
 ## package.json
 > 先从`package.json`开始看起
-
 
 ### 生产依赖
 
