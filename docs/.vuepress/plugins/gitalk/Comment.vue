@@ -62,7 +62,6 @@ export default {
 
             // https://github.com/gitalk/gitalk/issues/102
             console.log(location.pathname)
-            // COMMENT_OPTIONS.id = decodeURI(location.pathname);
             let options = JSON.parse(JSON.stringify(COMMENT_OPTIONS));
             options.id = decodeURI(location.pathname);
             const gittalk = new Gitalk(options);

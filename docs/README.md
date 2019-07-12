@@ -8,6 +8,6 @@ actionLink: /guide/
 footer: MIT Licensed | Copyright © 2019 石义森
 ---
 ## 🎨大前端
-- [element源码学习](/ele-01/)
-- [前端杂记](/zaji-01/)
+- [element源码学习](https://shiyisen321.github.io/ele-01/)
+- [前端杂记](https://shiyisen321.github.io/zaji-01/)
 
