@@ -49,6 +49,7 @@ module.exports = {
                     owner: 'shiyisen321',
                     admin: ['shiyisen321'],
                     distractionFreeMode: false,
+                    id: decodeURI(location.pathname),
                     labels: ['Gitalk', 'Comment'],
                 }
             }
