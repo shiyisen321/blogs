@@ -6,7 +6,7 @@
 //     const { frontmatter } = $page
 
 //     if (
-//       !frontmatter 
+//       !frontmatter
 //       || JSON.stringify(frontmatter) === '{}'
 //       || !frontmatter.permalink 
 //       || frontmatter.single === true
