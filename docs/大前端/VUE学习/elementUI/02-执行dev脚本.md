@@ -1,5 +1,5 @@
 ---
-title: 执行dev脚本命令
+title: element:执行dev脚本
 date: 2019-07-10
 permalink: ele-02
 ---
