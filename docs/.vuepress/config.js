@@ -49,7 +49,6 @@ module.exports = {
                     owner: 'shiyisen321',
                     admin: ['shiyisen321'],
                     distractionFreeMode: false,
-                    id: frontmatter.commentid || frontmatter.permalink,
                     labels: ['Gitalk', 'Comment'],
                 }
             }
