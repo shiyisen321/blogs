@@ -24,6 +24,7 @@ module.exports = {
                     text: 'VUE',
                     items: [
                         {text: 'element源码学习', link: '/ele-01/'},
+                        {text: 'Vue.js 技术揭秘', link: '/vue-analysis/'}
                     ]
                 },
                 {

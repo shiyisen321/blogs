@@ -1,6 +1,8 @@
 ## 大前端
 
 ### VUE
+[Vue.js 技术揭秘](/vue-analysis/)
+
 [element源码解析](/ele-01/)
 
 ### 前端杂记
