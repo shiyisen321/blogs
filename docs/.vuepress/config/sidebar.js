@@ -14,6 +14,7 @@ const zaji = [
         title: '前端杂记',
         collapsable: false,
         children: [
+            '浏览器解析和渲染',
             'markdown-it插件',
             'uppercamelcase插件',
             'json-templater插件',

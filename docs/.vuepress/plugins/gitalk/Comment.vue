@@ -61,9 +61,9 @@ export default {
             parentDOM.appendChild(commentDOM);
 
             // https://github.com/gitalk/gitalk/issues/102
-            console.log(location.pathname)
             let options = JSON.parse(JSON.stringify(COMMENT_OPTIONS));
             options.id = decodeURI(location.pathname);
+
             const gittalk = new Gitalk(options);
             gittalk.render(this.commentDomID);
         }

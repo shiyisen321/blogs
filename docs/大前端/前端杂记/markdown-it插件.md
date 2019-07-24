@@ -537,5 +537,4 @@ Renderer.prototype.render = function (tokens, options, env) {
 };
 
 module.exports = Renderer;
-
 ```
