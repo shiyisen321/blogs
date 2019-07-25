@@ -224,7 +224,7 @@ function advance (n) {
 
 为了更加直观地说明 `advance` 的作用，可以通过一副图表示：
 
-<img :src="$withBase('/img/advance-1.png')">
+<img :src="$withBase('/img/vue/advance-1.png')">
 
 调用 `advance` 函数：
 
@@ -235,7 +235,7 @@ advance(4)
 得到结果：
 
 
-<img :src="$withBase('/img/advance-2.png')">
+<img :src="$withBase('/img/vue/advance-2.png')">
 
 
 匹配的过程中主要利用了正则表达式，如下：
@@ -449,7 +449,7 @@ function parseEndTag (tagName, start, end) {
 
 `parseEndTag` 的核心逻辑很简单，在介绍之前我们回顾一下在执行 `handleStartTag` 的时候，对于非一元标签（有 endTag）我们都把它构造成一个对象压入到 `stack` 中，如图所示：
 
-<img :src="$withBase('/img/stack.png')">
+<img :src="$withBase('/img/vue/stack.png')">
 
 那么对于闭合标签的解析，就是倒序 `stack`，找到第一个和当前 `endTag` 匹配的元素。如果是正常的标签匹配，那么 `stack` 的最后一个元素应该和当前的 `endTag` 匹配，但是考虑到如下错误情况：
 
@@ -874,7 +874,7 @@ return {
 
 ## 流程图
 
-<img :src="$withBase('/img/parse.png')">
+<img :src="$withBase('/img/vue/parse.png')">
 
 ## 总结
 

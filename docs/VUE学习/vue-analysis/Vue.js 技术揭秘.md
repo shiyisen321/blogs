@@ -20,7 +20,7 @@ permalink: vue-analysis
 
 为了把 Vue.js 的源码讲明白，课程设计成由浅入深，分为核心、编译、扩展、生态四个方面去讲，并拆成了八个章节，如下图：
 
-<img :src="$withBase('/img/mind.png')">
+<img :src="$withBase('/img/vue/mind.png')">
 
 **第一章：准备工作**
 

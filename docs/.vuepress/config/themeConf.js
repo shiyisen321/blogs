@@ -30,6 +30,7 @@ module.exports = {
                 {
                     text: '前端杂记',
                     items: [
+                        {text: 'provisional headers are shown 知多少', link: '/zaji-07/'},
                         {text: '浏览器解析和渲染', link: '/zaji-06/'},
                         {text: 'markdown-it插件', link: '/zaji-05/'},
                         {text: 'uppercamelcase插件', link: '/zaji-04/'},

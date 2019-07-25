@@ -6,6 +6,8 @@
 [element源码解析](/ele-01/)
 
 ### 前端杂记
+[provisional headers are shown 知多少](/zaji-07/)
+
 [浏览器解析和渲染](/zaji-06/)
 
 [markdown-it插件](/zaji-05/)

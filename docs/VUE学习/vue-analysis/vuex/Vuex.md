@@ -40,7 +40,7 @@ new Vue({
 
 以下是一个表示“单向数据流”理念的极简示意：
 
-<img :src="$withBase('/img/vuex.png')">
+<img :src="$withBase('/img/vue/vuex.png')">
 
 但是，当我们的应用遇到多个组件共享状态时，单向数据流的简洁性很容易被破坏：
 
@@ -64,7 +64,7 @@ Vuex 和单纯的全局对象有以下两点不同：
 
 另外，通过定义和隔离状态管理中的各种概念并强制遵守一定的规则，我们的代码将会变得更结构化且易维护。
 
-<img :src="$withBase('/img/vuex1.png')">
+<img :src="$withBase('/img/vue/vuex1.png')">
 
 ----------------------------
 
