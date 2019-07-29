@@ -38,6 +38,12 @@ module.exports = {
                         {text: 'postcss.parse()方法', link: '/zaji-02/'},
                         {text: 'shell中&&和&的区别', link: '/zaji-01/'},
                     ]
+                },
+                {
+                    text: 'JavaScript深入',
+                    items: [
+                        {text: '详解JS原型链与继承', link: '/js-prototype/'},
+                    ]
                 }
             ]
         },

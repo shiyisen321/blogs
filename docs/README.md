@@ -14,3 +14,5 @@ footer: MIT Licensed | Copyright © 2019 石义森
 
 - [前端杂记](https://shiyisen321.github.io/zaji-01/)
 
+- [JavaScript深入](https://shiyisen321.github.io/js-prototype/)
+

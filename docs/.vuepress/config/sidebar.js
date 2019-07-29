@@ -1,4 +1,4 @@
-const elementUI = [
+const ElementUI = [
     {
         title: 'element源码学习',
         collapsable: false,
@@ -9,7 +9,7 @@ const elementUI = [
     },
 ];
 
-const vueAnalysis = [
+const VueAnalysis = [
     {
         title: 'Vue.js 技术揭秘',
         collapsable: false,
@@ -116,7 +116,7 @@ const vueAnalysis = [
     }
 ]
 
-const zaji = [
+const Zaji = [
     {
         title: '前端杂记',
         collapsable: false,
@@ -132,8 +132,19 @@ const zaji = [
     },
 ]
 
+const JsStudy = [
+    {
+        title: 'JavaScript深入',
+        collapsable: false,
+        children: [
+            '详解JS原型链与继承'
+        ]
+    }
+]
+
 module.exports = {
-    '/VUE学习/elementUI/': elementUI,
-    '/前端杂记/': zaji,
-    '/VUE学习/vue-analysis/': vueAnalysis
+    '/VUE学习/elementUI/': ElementUI,
+    '/前端杂记/': Zaji,
+    '/VUE学习/vue-analysis/': VueAnalysis,
+    '/JavaScript深入/': JsStudy,
 }

@@ -20,6 +20,9 @@
 
 [shell中&&和&的区别](/zaji-01/)
 
+### JavaScript深入
+[详解JS原型链与继承](/js-prototype/)
+
 
 <style>
     .theme-default-content.content__default p a {
