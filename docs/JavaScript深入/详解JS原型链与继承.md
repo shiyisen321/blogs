@@ -116,10 +116,10 @@ alert(Son.prototype.isPrototypeOf(instance)); // true
 :::
 
 ```js
-function Father(){
+function Father() {
     this.colors = ["red","blue","green"];
 }
-function Son(){
+function Son() {
     Father.call(this); // 继承了Father,且向父类型传递参数
 }
 var instance1 = new Son();
@@ -147,34 +147,34 @@ console.log(instance2.colors); // "red,blue,green" 可见引用类型值是独�
 ## 组合继承
 组合继承，有时候也叫做伪经典继承，指的是将原型链和借用构造函数的技术组合到一块，从而发挥两者之长的一种继承模式。
 
-:::tip 基本死路：
+:::tip 基本思路：
 使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。
 :::
 
 这样，既通过在原型上定义方法实现了函数复用，又能保证每个实例都有它自己的属性。如下所示：
 ```js
-function Father(name){
+function Father(name) {
     this.name = name;
-    this.colors = ["red","blue","green"];
+    this.colors = ["red", "blue", "green"];
 }
-Father.prototype.sayName = function(){
+Father.prototype.sayName = function() {
     alert(this.name);
 };
-function Son(name,age){
-    Father.call(this,name); // 继承实例属性，第一次调用Father()
+function Son(name, age) {
+    Father.call(this, name); // 继承实例属性，第一次调用Father()
     this.age = age;
 }
 Son.prototype = new Father(); // 继承父类方法,第二次调用Father()
-Son.prototype.sayAge = function(){
+Son.prototype.sayAge = function() {
     alert(this.age);
 }
-var instance1 = new Son("louis",5);
+var instance1 = new Son("louis", 5);
 instance1.colors.push("black");
 console.log(instance1.colors); // "red,blue,green,black"
 instance1.sayName(); // louis
 instance1.sayAge(); // 5
 
-var instance1 = new Son("zhai",10);
+var instance1 = new Son("zhai", 10);
 console.log(instance1.colors); // "red,blue,green"
 instance1.sayName(); // zhai
 instance1.sayAge(); // 10
@@ -194,8 +194,8 @@ instance1.sayAge(); // 10
 :::
 
 ```js
-function object(o){
-    function F(){}
+function object(o) {
+    function F() {}
     F.prototype = o;
     return new F();
 }
@@ -203,7 +203,7 @@ function object(o){
 从本质上讲，`object()` 对传入其中的对象执行了一次浅复制。下面我们来看看为什么是浅复制。
 ```js
 var person = {
-    friends : ["Van","Louis","Nick"]
+    friends : ["Van", "Louis", "Nick"]
 };
 var anotherPerson = object(person);
 anotherPerson.friends.push("Rob");
@@ -220,7 +220,7 @@ alert(person.friends); // "Van,Louis,Nick,Rob,Style"
 - (可选的)一个为新对象定义额外属性的对象
 ```js
 var person = {
-    friends : ["Van","Louis","Nick"]
+    friends : ["Van", "Louis", "Nick"]
 };
 var anotherPerson = Object.create(person);
 anotherPerson.friends.push("Rob");
@@ -254,9 +254,9 @@ alert(anotherPerson.name); // "Louis"
 寄生式继承的思路与(寄生)构造函数和工厂模式类似，即创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真的是它做了所有工作一样返回对象。如下：
 :::
 ```js
-function createAnother(original){
+function createAnother(original) {
     var clone = object(original); // 通过调用object函数创建一个新对象
-    clone.sayHi = function(){ // 以某种方式来增强这个对象
+    clone.sayHi = function() { // 以某种方式来增强这个对象
         alert("hi");
     };
     return clone; // 返回这个对象
@@ -271,7 +271,7 @@ function createAnother(original){
 ## 寄生组合式继承
 前面讲过，组合继承是 JavaScript 最常用的继承模式；不过，它也有自己的不足。组合继承最大的问题就是无论什么情况下，都会调用两次父类构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。**寄生组合式继承就是为了降低调用父类构造函数的开销而出现的**。
 ```js
-function extend(subClass,superClass){
+function extend(subClass, superClass) {
     var prototype = object(superClass.prototype); // 创建对象
     prototype.constructor = subClass; // 增强对象
     subClass.prototype = prototype; // 指定对象
@@ -292,7 +292,7 @@ function extend(subClass, superClass) {
   subClass.prototype.constructor = subClass;
 
   subClass.superclass = superClass.prototype;
-  if(superClass.prototype.constructor == Object.prototype.constructor) {
+  if (superClass.prototype.constructor == Object.prototype.constructor) {
     superClass.prototype.constructor = superClass;
   }
 }
@@ -345,10 +345,10 @@ function extend(subClass, superClass) {
 ```
 此时，请看如下测试：
 ```js
-function a(){}
-function b(){}
-extend(b,a);
-var c = new a(){};
+function a() {}
+function b() {}
+extend(b, a);
+var c = new a() {};
 console.log(c instanceof a); // true
 console.log(c instanceof b); // true
 ```
@@ -358,28 +358,28 @@ console.log(c instanceof b); // true
 
 那么最终，原型链继承可以这么实现，例如：
 ```js
-function Father(name){
+function Father(name) {
     this.name = name;
-    this.colors = ["red","blue","green"];
+    this.colors = ["red", "blue", "green"];
 }
-Father.prototype.sayName = function(){
+Father.prototype.sayName = function() {
     alert(this.name);
 };
-function Son(name,age){
-    Father.call(this,name); // 继承实例属性，第一次调用Father()
+function Son(name, age) {
+    Father.call(this, name); // 继承实例属性，第一次调用Father()
     this.age = age;
 }
-extend(Son,Father) // 继承父类方法,此处并不会第二次调用Father()
-Son.prototype.sayAge = function(){
+extend(Son, Father) // 继承父类方法,此处并不会第二次调用Father()
+Son.prototype.sayAge = function() {
     alert(this.age);
 }
-var instance1 = new Son("louis",5);
+var instance1 = new Son("louis", 5);
 instance1.colors.push("black");
 console.log(instance1.colors); // "red,blue,green,black"
 instance1.sayName(); // louis
 instance1.sayAge(); // 5
 
-var instance1 = new Son("zhai",10);
+var instance1 = new Son("zhai", 10);
 console.log(instance1.colors); // "red,blue,green"
 instance1.sayName(); // zhai
 instance1.sayAge(); // 10
@@ -404,7 +404,7 @@ console.log(Father.prototype.isPrototypeOf(instance1)); // true
 
 **`instanceof`** 运算符是用来在运行时指出对象是否是构造器的一个实例,例如漏写了 `new` 运算符去调用某个构造器，此时构造器内部可以通过 `instanceof` 来判断。(java中功能类似)
 ```js
-function f(){
+function f() {
   if(this instanceof arguments.callee)
     console.log('此处作为构造函数被调用');
   else
@@ -455,4 +455,10 @@ alert(obj2 instanceof MyObject); // true
 
 - [JavaScript的实例化与继承：请停止使用new关键字](https://www.infoq.cn/article/javascript-instantiation-and-inheritance/)
 
-- [深入理解JavaScript系列（5）：强大的原型和原型链 - 汤姆大叔 - 博客园](https://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html)
+- [深入理解JavaScript系列(5)：强大的原型和原型链](https://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html)
+
+<style>
+.theme-default-content.content__default p a {
+    margin-left: 0;
+}
+</style>

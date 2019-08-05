@@ -42,6 +42,7 @@ module.exports = {
                 {
                     text: 'JavaScript深入',
                     items: [
+                        {text: '词法作用域和动态作用域', link: '/js-scope/'},
                         {text: '详解JS原型链与继承', link: '/js-prototype/'},
                     ]
                 }

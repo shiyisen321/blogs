@@ -23,6 +23,8 @@
 ### JavaScript深入
 [详解JS原型链与继承](/js-prototype/)
 
+[词法作用域和动态作用域](/js-scope/)
+
 
 <style>
     .theme-default-content.content__default p a {
