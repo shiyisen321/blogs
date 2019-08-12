@@ -77,7 +77,7 @@ alert(instance.getFatherValue()); // true
 使用原型链后，我们怎么去判断原型和实例的这种继承关系呢？方法一般有两种。
 
 :::tip
-第一种是使用 `instanceof` 操作符，只要这个操作符来测试实例(`instance`)与原型链中出现过的构造函数，结果就会返回 `true`。以下几行代码就说明了这一点：
+第一种是使用 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 运算符，只要这个操作符来测试实例(`instance`)与原型链中出现过的构造函数，结果就会返回 `true`。以下几行代码就说明了这一点：
 :::
 ```js
 alert(instance instanceof Object); // true
@@ -87,7 +87,7 @@ alert(instance instanceof Son); // true
 由于原型链的关系，我们可以说 `instance` 是 `Object`，`Father` 或 `Son` 中任何一个类型的实例。因此，这三个构造函数的结果都返回了 `true`。
 
 :::tip
-第二种是使用 `isPrototypeOf()` 方法，同样只要是原型链中出现过的原型，`isPrototypeOf()` 方法就会返回 `true`，如下所示：
+第二种是使用 [`isPrototypeOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf) 方法，同样只要是原型链中出现过的原型，`isPrototypeOf()` 方法就会返回 `true`，如下所示：
 :::
 ```js
 alert(Object.prototype.isPrototypeOf(instance)); // true
@@ -456,6 +456,19 @@ alert(obj2 instanceof MyObject); // true
 - [JavaScript的实例化与继承：请停止使用new关键字](https://www.infoq.cn/article/javascript-instantiation-and-inheritance/)
 
 - [深入理解JavaScript系列(5)：强大的原型和原型链](https://www.cnblogs.com/TomXu/archive/2012/01/05/2305453.html)
+
+------------------
+
+**一些好的相关文章**
+- [Javascript继承机制的设计思想](http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html)
+
+- [Javascript 面向对象编程（一）：封装](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html)
+
+- [Javascript面向对象编程（二）：构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html)
+
+- [Javascript面向对象编程（三）：非构造函数的继承](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
+
+- [理解js继承的6种方式](https://www.cnblogs.com/Grace-zyy/p/8206002.html)
 
 <style>
 .theme-default-content.content__default p a {
