@@ -10,7 +10,7 @@ git init
 git add -A
 git commit -m 'deploy'
 
-# git push -f git@github.com:shiyisen321/shiyisen321.github.io.git master
+# git push -f git@github.com:YisenFE/YisenFE.github.io.git master
 
 # 自动构建
 git push -f https://${access_token}@github.com/YisenFE/YisenFE.github.io.git master
