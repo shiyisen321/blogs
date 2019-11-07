@@ -6,6 +6,8 @@
 [element源码解析](/ele-01/)<update>2019-7-24 18:45:45</update>
 
 ### 前端杂记
+[vscode调试webpack](/zaji-08/)<update>2019-11-7 10:58:32</update>
+
 [provisional headers are shown 知多少](/zaji-07/)<update>2019-7-25 14:43:56</update>
 
 [浏览器解析和渲染](/zaji-06/)<update>2019-7-24 18:45:45</update>
