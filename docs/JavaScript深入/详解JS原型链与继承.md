@@ -14,7 +14,7 @@ permalink: js-prototype
 简单回顾下构造函数，原型和实例的关系：
 
 :::tip
-<img :src="$withBase('/img/JavaScript/prototypeChain.png')">
+<img :src="$withBase('/img/js/prototypeChain.png')">
 
 每个构造函数(`constructor`)都有一个原型对象(`prototype`)，
 
@@ -77,7 +77,7 @@ alert(instance.getFatherValue()); // true
 使用原型链后，我们怎么去判断原型和实例的这种继承关系呢？方法一般有两种。
 
 :::tip
-第一种是使用 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 运算符，只要这个操作符来测试实例(`instance`)与原型链中出现过的构造函数，结果就会返回 `true`。以下几行代码就说明了这一点：
+第一种是使用 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/js/Reference/Operators/instanceof) 运算符，只要这个操作符来测试实例(`instance`)与原型链中出现过的构造函数，结果就会返回 `true`。以下几行代码就说明了这一点：
 :::
 ```js
 alert(instance instanceof Object); // true
@@ -87,7 +87,7 @@ alert(instance instanceof Son); // true
 由于原型链的关系，我们可以说 `instance` 是 `Object`，`Father` 或 `Son` 中任何一个类型的实例。因此，这三个构造函数的结果都返回了 `true`。
 
 :::tip
-第二种是使用 [`isPrototypeOf()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf) 方法，同样只要是原型链中出现过的原型，`isPrototypeOf()` 方法就会返回 `true`，如下所示：
+第二种是使用 [`isPrototypeOf()`](https://developer.mozilla.org/zh-CN/docs/Web/js/Reference/Global_Objects/Object/isPrototypeOf) 方法，同样只要是原型链中出现过的原型，`isPrototypeOf()` 方法就会返回 `true`，如下所示：
 :::
 ```js
 alert(Object.prototype.isPrototypeOf(instance)); // true
