@@ -121,6 +121,7 @@ const Zaji = [
         title: '前端杂记',
         collapsable: false,
         children: [
+            '从零开发一个node命令行工具',
             'vscode调试webpack',
             'provisional headers are shown 知多少',
             '浏览器解析和渲染',

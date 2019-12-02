@@ -6,6 +6,8 @@
 [element源码解析](/ele-01/)<update>2019-7-24 18:45:45</update>
 
 ### 前端杂记
+[从零开发一个node命令行工具](/zaji-09/)<update>2019-11-8 20:01:21</update>
+
 [vscode调试webpack](/zaji-08/)<update>2019-11-7 10:58:32</update>
 
 [provisional headers are shown 知多少](/zaji-07/)<update>2019-7-25 14:43:56</update>

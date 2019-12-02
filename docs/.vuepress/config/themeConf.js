@@ -30,6 +30,7 @@ module.exports = {
                 {
                     text: '前端杂记',
                     items: [
+                        {text: '从零开发一个node命令行工具', link: '/zaji-09/'},
                         {text: 'vscode调试webpack', link: '/zaji-08/'},
                         {text: 'provisional headers are shown 知多少', link: '/zaji-07/'},
                         {text: '浏览器解析和渲染', link: '/zaji-06/'},
