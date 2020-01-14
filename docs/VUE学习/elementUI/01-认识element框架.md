@@ -1,7 +1,7 @@
 ---
 title: "element:初识"
 date: "2019-07-04"
-permalink: "ele-01"
+permalink: /ele-01/
 ---
 ####
 

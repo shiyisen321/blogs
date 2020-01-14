@@ -143,11 +143,22 @@ const JsStudy = [
             '详解JS原型链与继承',
         ]
     }
-]
+];
+
+const CSS = [
+    {
+        title: 'CSS',
+        collapsable: false,
+        children: [
+            '什么是BFC'
+        ]
+    }
+];
 
 module.exports = {
     '/VUE学习/elementUI/': ElementUI,
     '/前端杂记/': Zaji,
     '/VUE学习/vue-analysis/': VueAnalysis,
     '/JavaScript深入/': JsStudy,
+    '/CSS/': CSS
 }

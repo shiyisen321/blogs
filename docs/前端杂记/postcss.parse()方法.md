@@ -1,6 +1,6 @@
 ---
 data: 2019-07-10
-permalink: zaji-02
+permalink: /zaji-02/
 ---
 
 # postcss.parse()方法

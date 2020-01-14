@@ -1,6 +1,6 @@
 ---
 date: 2019-07-25
-permalink: js-prototype
+permalink: /js-prototype/
 ---
 
 # 详解JS原型链与继承

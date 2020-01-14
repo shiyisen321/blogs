@@ -1,6 +1,6 @@
 ---
 date: 2019-11-08
-permalink: zaji-09
+permalink: /zaji-09/
 title: 从零开发一个node命令行工具
 ---
 

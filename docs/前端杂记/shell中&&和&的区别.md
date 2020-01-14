@@ -1,6 +1,6 @@
 ---
 date: 2019-07-10
-permalink: zaji-01
+permalink: /zaji-01/
 ---
 
 # shell 中 && 和 & 的区别

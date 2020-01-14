@@ -47,6 +47,12 @@ module.exports = {
                         {text: '详解JS原型链与继承', link: '/js-prototype/'},
                         {text: '词法作用域和动态作用域', link: '/js-scope/'},
                     ]
+                },
+                {
+                    text: 'CSS',
+                    items: [
+                        {text: '什么是BFC', link: '/css-01/'}
+                    ]
                 }
             ]
         },

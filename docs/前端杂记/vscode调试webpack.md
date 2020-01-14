@@ -1,6 +1,6 @@
 ---
 date: 2019-11-06
-permalink: zaji-08
+permalink: /zaji-08/
 ---
 
 # vscode调试webpack

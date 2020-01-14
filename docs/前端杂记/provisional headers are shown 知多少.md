@@ -1,6 +1,6 @@
 ---
 date: 2019-07-25
-permalink: zaji-07
+permalink: /zaji-07/
 ---
 
 # provisional headers are shown 知多少

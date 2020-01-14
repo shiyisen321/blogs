@@ -1,6 +1,6 @@
 ---
 date: 2019-07-10
-permalink: zaji-03
+permalink: /zaji-03/
 ---
 
 # `json-templater/string` 插件

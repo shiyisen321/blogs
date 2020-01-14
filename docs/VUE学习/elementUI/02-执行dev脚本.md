@@ -1,7 +1,7 @@
 ---
 title: element:执行dev脚本
 date: 2019-07-10
-permalink: ele-02
+permalink: /ele-02/
 ---
 ####
 

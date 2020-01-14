@@ -52,6 +52,14 @@ module.exports = {
                     labels: ['Gitalk', 'Comment'],
                 }
             }
+        ],
+        [
+            require('vuepress-plugin-container'),
+            {
+                type: 'detail',
+                before: info => `<details class="custom-block detail"><summary>${info}</summary>`,
+                after: `</details>`
+            }
         ]
     ]
-}
+};
