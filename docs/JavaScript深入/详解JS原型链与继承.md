@@ -62,11 +62,11 @@ Son.prototype.getSonValue = function() {
     return this.sonProperty;
 }
 var instance = new Son();
-alert(instance.getFatherValue()); // true
+alert(instance.getFatherValue()); // true (instance没有此属性找到了Father中)
 ```
 `instance` 实例通过原型链找到了 `Father` 原型中的 `getFatherValue` 方法。
 
-注意：此时 `instance.constructor` 指向的是 `Father`，这是因为 `Son.prototype` 中的 `constructor` 被重写的缘故。
+注意：此时 `instance.constructor` 指向的是 `Father`，这是因为 `Son.prototype` 中的 `constructor` 被重写的缘故。修复Son.prototype.constructor:`Son.prototype.constructor = Son;`
 
 以上我们弄清楚了何为原型链。
 
