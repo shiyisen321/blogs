@@ -25,6 +25,7 @@ console.log(str instanceof String); // true
 
 ## instanceof 运算符的常规用法
 通常来讲，使用 `instanceof` 就是判断一个实例是否属于某种类型。例如：
+
 **清单2. instanceof 常规用法**
 ```js
 // 判断 foo 是否是 Foo 类的实例
@@ -34,6 +35,7 @@ console.log(foo instanceof Foo); // true
 ```
 
 另外，更重要的一点是 `instanceof` 可以在继承关系中用来判断一个实例是否属于它的父类型。例如：
+
 **清单3. instanceof 在继承关系中的用法**
 ```js
 // 判断 foo 是否是 Foo 类的实例，并且是否是其父类型的实例
@@ -48,6 +50,7 @@ console.log(foo instanceof Aoo); // true
 
 ## 你真的了解 instanceof 操作符吗？
 看了上面的代码示例，是不是觉得 `instanceof` 操作符很简单，下面来看点复杂的用法。
+
 **清单4. instanceof 复杂用法**
 ```js
 console.log(Object instanceof Object); // true
@@ -62,11 +65,14 @@ console.log(Foo instanceof Function); // true
 console.log(Foo instanceof Foo); // false
 ```
 看了上面的代码是不是又晕头转向了？为什么 `Object` 和 `Function instanceof` 自己等于 `true`，而其他类 `instanceof` 自己却又不等于 `true` 呢？ 如何解释？
-要想从根本上了解 `instanceof` 的奥秘，需要从两个方面着手：
+
+::: tip 要想从根本上了解 `instanceof` 的奥秘，需要从两个方面着手：
 1. 语言规范中是如何定义这个运算符的；
 2. JavaScript 原型继承机制。
+:::
 
 **清单5. JavaScript instanceof 运算符代码**
+
 规范定义比较晦涩难懂，直接将规范翻译为代码：
 ```js
 function instance_of(L, R) { // L 标示左表达式，R 标示右表达式
